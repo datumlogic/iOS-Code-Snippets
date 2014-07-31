@@ -6,7 +6,6 @@ List of code snippets for iOS developers.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
-- [iOS-Code-Snippets](#ios-code-snippets)
 - [Debugging](#debugging)
     - [Log](#log)
     - [Alert](#alert)
