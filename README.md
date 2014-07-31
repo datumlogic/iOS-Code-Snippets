@@ -9,6 +9,8 @@ List of code snippets for iOS developers.
 - [Debugging](#debugging)
     - [Log](#log)
     - [Alert](#alert)
+- [GCD](#gcd)
+    - [Timer](#timer)
 - [MVC](#mvc)
     - [Singleton Object](#singleton-object)
 - [OTA Install URL Prefix](#ota-install-url-prefix)
@@ -24,6 +26,15 @@ List of code snippets for iOS developers.
 ### Alert
 ```c
 #define DebugAlert(__FORMAT__, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Debug Message"] message:[NSString stringWithFormat:@"[%@] \n [Line %d] \n" __FORMAT__, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil]; dispatch_async(dispatch_get_main_queue(), ^{ [alert show]; }); }
+```
+
+# GCD
+### Timer
+```objc
+dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
+dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    // Do something...
+});
 ```
 
 # MVC
