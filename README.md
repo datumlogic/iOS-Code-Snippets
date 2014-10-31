@@ -13,6 +13,9 @@ List of code snippets for iOS developers.
     - [Timer](#timer)
 - [MVC](#mvc)
     - [Singleton Object](#singleton-object)
+- [Travis Ci](#travis-ci)
+    - [Encrypt Certificates](#encrypt-certificates)
+- [Update Build Number](#update-build-number)
 - [OTA Install URL Prefix](#ota-install-url-prefix)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
