@@ -30,17 +30,17 @@ List of code snippets for iOS developers.
 
 # GCD
 ### Timer
-```objc
+~~~objectivec
 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
 dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     // Do something...
 });
-```
+~~~
 
 # MVC
 
 ### Singleton Object
-```objc
+```objectivec
 + (instancetype)sharedInstance {
    static id sharedInstance = nil;
 
@@ -51,6 +51,25 @@ dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 
    return sharedInstance;
 }
+```
+
+#Travis Ci
+
+### Encrypt Certificates
+```c
+openssl aes-256-cbc -k "password" -in scripts/profile/name.mobileprovision -out scripts/profile/name.mobileprovision.enc -a
+openssl aes-256-cbc -k "password" -in scripts/certs/developer.cer -out scripts/certs/developer.cer.enc -a
+openssl aes-256-cbc -k "password" -in scripts/certs/developer.p12 -out scripts/certs/developer.cer.p12 -a
+```
+
+#Update Build Number
+```ruby
+if [ "${CONFIGURATION}" = "Release" ]; then
+buildNumber=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$INFOPLIST_FILE")
+buildNumber=$(($buildNumber + 1))
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "$INFOPLIST_FILE"
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"
+fi
 ```
 
 # OTA Install URL Prefix
